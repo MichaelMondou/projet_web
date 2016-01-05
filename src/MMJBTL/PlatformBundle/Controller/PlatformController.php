@@ -23,15 +23,17 @@ class PlatformController extends Controller
     {
         $em = $this
             ->getDoctrine()
-            ->getEntityManager();
+            ->getManager();
         $repo = $em
             ->getRepository('PlatformBundle:Album');
         $listAlbums = $repo
             ->getAlbumsByName();
-
+        /*$listPochettes = $repo
+            ->getAlbumsPochettes($listAlbums);*/
 
         return $this->render('PlatformBundle:Platform:albums.html.twig', array(
             'listAlbums'           => $listAlbums,
+        //    'listPochettes'           => $listPochettes,
         ));
     }
 

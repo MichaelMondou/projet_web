@@ -14,11 +14,22 @@ class AlbumRepository extends \Doctrine\ORM\EntityRepository
 
     public function getAlbumsByName()
     {
-        $qb = $this->createQueryBuilder('a')
-            ->orderBy('a.titreAlbum', 'ASC');
+        $query = $this->_em->createQuery('SELECT a.titreAlbum FROM PlatformBundle:Album a ORDER BY a.titreAlbum');
+  $results = $query->getResult();
 
-        return $qb->getQuery()
-            ->getResult();
+  return $results;
+    }
+
+    public function getAlbumsPochettes($listAlbums) {
+        foreach ($listAlbums as $album) {
+            $image = stream_get_contents($album->getPochette());
+        }
+        $image = pack("H*", $image);
+        $response = new \Symfony\Component\HttpFoundation\Response();
+        $response->headers->set('Content-type', 'image/jpeg');
+        $response->headers->set('Content-Transfer-Encoding', 'binary');
+        $response->setContent($image);
+        return $response;
     }
 
 }
