@@ -14,10 +14,13 @@ class AlbumRepository extends \Doctrine\ORM\EntityRepository
 
     public function getAlbumsByName()
     {
-        $query = $this->_em->createQuery('SELECT a.titreAlbum FROM PlatformBundle:Album a ORDER BY a.titreAlbum');
-  $results = $query->getResult();
+        $qb = $this->createQueryBuilder('a');
 
-  return $results;
+        $qb->orderBy('a.titreAlbum', 'ASC');
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
     }
 
     public function getAlbumsPochettes($listAlbums) {
@@ -31,5 +34,4 @@ class AlbumRepository extends \Doctrine\ORM\EntityRepository
         $response->setContent($image);
         return $response;
     }
-
 }

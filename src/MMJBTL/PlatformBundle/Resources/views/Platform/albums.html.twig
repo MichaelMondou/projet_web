@@ -1,4 +1,19 @@
-{% for album in listAlbums %}
-    <li>{{ album.titreAlbum }}</li>
-{% endfor %}
+{% extends "PlatformBundle::layout.html.twig" %}
 
+{% block title %}
+    Albums - {{ parent() }}
+{% endblock %}
+
+{% block platform_body %}
+
+
+    <div class="list-group">
+        {% for album in listAlbums %}
+            <a href="#">
+                <li class="list-group-item">{{ album.titreAlbum }}</li>
+            </a>
+            <p class="list-group-item">{{ album.annéeAlbum }}</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}
