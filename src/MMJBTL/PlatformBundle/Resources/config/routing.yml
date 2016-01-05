@@ -1,0 +1,7 @@
+platform_homepage:
+    path:     /
+    defaults: { _controller: PlatformBundle:Platform:index }
+
+platform_albums:
+    path: /albums
+    defaults: { _controller: PlatformBundle:Platform:albums }
