@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block albums %}
-        {% for album in listAlbums %}
-        <li>{{ album.annéeAlbum}}</li>
+        {% for album in listAlbumsByName %}
+        <li>{{ album.titreAlbum}}</li>
         {% endfor %}
 {% endblock %}

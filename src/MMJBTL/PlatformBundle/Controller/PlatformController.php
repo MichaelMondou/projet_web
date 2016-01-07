@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Mika
- * Date: 04/01/2016
- * Time: 11:28
- */
 
 namespace MMJBTL\PlatformBundle\Controller;
 
@@ -24,19 +18,15 @@ class PlatformController extends Controller
         $em = $this
             ->getDoctrine()
             ->getManager();
+
         $repo = $em
             ->getRepository('PlatformBundle:Album');
-        $listAlbums = $repo
+
+        $listAlbumsByName = $repo
             ->getAlbumsByName();
-        /*$listPochettes = $repo
-            ->getAlbumsPochettes($listAlbums);*/
 
         return $this->render('PlatformBundle:Platform:albums.html.twig', array(
-            'listAlbums'           => $listAlbums,
-        //    'listPochettes'           => $listPochettes,
+            'listAlbumsByName'           => $listAlbumsByName,
         ));
     }
-
-
-
 }
