@@ -34,7 +34,7 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
     ";
         // line 9
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 12
+        // line 13
         echo "</head>
 
 <body>
@@ -57,7 +57,7 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
                     <span class=\"icon-bar\"></span>
                 </button>
                 <a class=\"navbar-brand\" href=\"";
-        // line 33
+        // line 34
         echo $this->env->getExtension('routing')->getPath("platform_homepage");
         echo "\">Projet Web</a>
             </div>
@@ -66,7 +66,7 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
             <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">
                 <ul class=\"nav navbar-nav\">
                     <li><a href=\"";
-        // line 39
+        // line 40
         echo $this->env->getExtension('routing')->getPath("platform_albums");
         echo "\">Albums</a></li>
                     <li class=\"dropdown\">
@@ -86,27 +86,27 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
                     </div>
                     <button type=\"submit\" class=\"btn btn-default\">Rechercher</button>
                 </form>
-            </div>
-        </div>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
     </nav>
-
+    
     ";
-        // line 61
+        // line 62
         $this->displayBlock('body', $context, $blocks);
-        // line 63
+        // line 64
         echo "
     <footer>
         <p>The sky's the limit © ";
-        // line 65
+        // line 66
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo " and beyond.</p>
     </footer>
 </div>
 
 ";
-        // line 69
+        // line 70
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 74
+        // line 75
         echo "
 </body>
 </html>
@@ -123,23 +123,25 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
     public function block_stylesheets($context, array $blocks = array())
     {
         // line 10
+        echo "        ";
+        // line 11
         echo "        <link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">
     ";
     }
 
-    // line 61
+    // line 62
     public function block_body($context, array $blocks = array())
     {
-        // line 62
-        echo "    ";
+        // line 63
+        echo "\t";
     }
 
-    // line 69
+    // line 70
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 70
-        echo "    ";
         // line 71
+        echo "    ";
+        // line 72
         echo "    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
     <script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
 ";
@@ -157,6 +159,6 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
 
     public function getDebugInfo()
     {
-        return array (  143 => 71,  141 => 70,  138 => 69,  134 => 62,  131 => 61,  126 => 10,  123 => 9,  117 => 7,  110 => 74,  108 => 69,  101 => 65,  97 => 63,  95 => 61,  70 => 39,  61 => 33,  38 => 12,  36 => 9,  31 => 7,  23 => 1,  65 => 18,  54 => 13,  51 => 12,  47 => 11,  42 => 8,  39 => 7,  32 => 4,  29 => 3,);
+        return array (  145 => 72,  143 => 71,  140 => 70,  136 => 63,  133 => 62,  128 => 11,  126 => 10,  123 => 9,  117 => 7,  110 => 75,  108 => 70,  101 => 66,  97 => 64,  95 => 62,  70 => 40,  61 => 34,  38 => 13,  36 => 9,  31 => 7,  23 => 1,  44 => 7,  37 => 7,  47 => 8,  42 => 8,  39 => 10,  32 => 4,  29 => 3,);
     }
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CompositionDisque
  *
- * @ORM\Table(name="Composition_Disque", indexes={@ORM\Index(name="IDX_6F414DB4B1A3EE1", columns={"Code_Disque"}), @ORM\Index(name="IDX_6F414DB4A1866919", columns={"Code_Enregistrement"})})
+ * @ORM\Table(name="Composition_Disque", indexes={@ORM\Index(name="IDX_6F414DB4B1A3EE1", columns={"Code_Disque"}), @ORM\Index(name="IDX_6F414DB4A1866919", columns={"Code_Morceau"})})
  * @ORM\Entity
  */
 class CompositionDisque
@@ -43,10 +43,10 @@ class CompositionDisque
      *
      * @ORM\ManyToOne(targetEntity="Enregistrement")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Code_Enregistrement", referencedColumnName="Code_Enregistrement")
+     *   @ORM\JoinColumn(name="Code_Morceau", referencedColumnName="Code_Morceau")
      * })
      */
-    private $codeEnregistrement;
+    private $codeMorceau;
 
 
     /**
@@ -108,26 +108,26 @@ class CompositionDisque
     }
 
     /**
-     * Set codeEnregistrement
+     * Set codeMorceau
      *
-     * @param \Enregistrement $codeEnregistrement
+     * @param \Enregistrement $codeMorceau
      *
      * @return CompositionDisque
      */
-    public function setCodeEnregistrement(\Enregistrement $codeEnregistrement = null)
+    public function setCodeMorceau(\Enregistrement $codeMorceau = null)
     {
-        $this->codeEnregistrement = $codeEnregistrement;
+        $this->codeMorceau = $codeMorceau;
 
         return $this;
     }
 
     /**
-     * Get codeEnregistrement
+     * Get codeMorceau
      *
      * @return \Enregistrement
      */
-    public function getCodeEnregistrement()
+    public function getCodeMorceau()
     {
-        return $this->codeEnregistrement;
+        return $this->codeMorceau;
     }
 }

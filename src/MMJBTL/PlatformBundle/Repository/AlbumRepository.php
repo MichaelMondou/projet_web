@@ -16,7 +16,6 @@ class AlbumRepository extends \Doctrine\ORM\EntityRepository
     {
         $qb = $this->createQueryBuilder('a');
 
-        $qb->orderBy('a.titreAlbum', 'ASC');
         return $qb
             ->getQuery()
             ->getResult()

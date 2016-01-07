@@ -11,7 +11,7 @@ class __TwigTemplate_3cddf56d41beb72a62023cf46b299069080b1afda3343b7ef7aaec975a5
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
-            'platform_body' => array($this, 'block_platform_body'),
+            'albums' => array($this, 'block_albums'),
         );
     }
 
@@ -36,38 +36,22 @@ class __TwigTemplate_3cddf56d41beb72a62023cf46b299069080b1afda3343b7ef7aaec975a5
     }
 
     // line 7
-    public function block_platform_body($context, array $blocks = array())
+    public function block_albums($context, array $blocks = array())
     {
         // line 8
-        echo "
-
-    <div class=\"list-group\">
-        ";
-        // line 11
+        echo "        ";
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listAlbums"]) ? $context["listAlbums"] : $this->getContext($context, "listAlbums")));
         foreach ($context['_seq'] as $context["_key"] => $context["album"]) {
-            // line 12
-            echo "            <a href=\"#\">
-                <li class=\"list-group-item\">";
-            // line 13
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["album"]) ? $context["album"] : $this->getContext($context, "album")), "titreAlbum"), "html", null, true);
-            echo "</li>
-            </a>
-            <button type=\"button\" class=\"list-group-item\">Cras justo odio</button>
-            <p class=\"list-group-item\">";
-            // line 16
+            // line 9
+            echo "        <li>";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["album"]) ? $context["album"] : $this->getContext($context, "album")), "annéeAlbum"), "html", null, true);
-            echo "</p>
+            echo "</li>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['album'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
-        echo "    </div>
-
-";
     }
 
     public function getTemplateName()
@@ -82,6 +66,6 @@ class __TwigTemplate_3cddf56d41beb72a62023cf46b299069080b1afda3343b7ef7aaec975a5
 
     public function getDebugInfo()
     {
-        return array (  68 => 18,  60 => 16,  54 => 13,  51 => 12,  47 => 11,  42 => 8,  39 => 7,  32 => 4,  29 => 3,);
+        return array (  47 => 9,  42 => 8,  39 => 7,  32 => 4,  29 => 3,);
     }
 }

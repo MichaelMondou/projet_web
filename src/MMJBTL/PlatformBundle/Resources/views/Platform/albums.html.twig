@@ -4,16 +4,8 @@
     Albums - {{ parent() }}
 {% endblock %}
 
-{% block platform_body %}
-
-
-    <div class="list-group">
+{% block albums %}
         {% for album in listAlbums %}
-            <a href="#">
-                <li class="list-group-item">{{ album.titreAlbum }}</li>
-            </a>
-            <p class="list-group-item">{{ album.annéeAlbum }}</p>
+        <li>{{ album.annéeAlbum}}</li>
         {% endfor %}
-    </div>
-
 {% endblock %}

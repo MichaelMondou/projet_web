@@ -19,7 +19,7 @@ class Enregistrement
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codeEnregistrement;
+    private $codeMorceau;
 
     /**
      * @var string
@@ -68,13 +68,13 @@ class Enregistrement
 
 
     /**
-     * Get codeEnregistrement
+     * Get code_Morceau
      *
      * @return integer
      */
-    public function getCodeEnregistrement()
+    public function getCodeMorceau()
     {
-        return $this->codeEnregistrement;
+        return $this->codeMorceau;
     }
 
     /**
@@ -200,11 +200,11 @@ class Enregistrement
     /**
      * Set codeComposition
      *
-     * @param \MMJBTL\PlatformBundle\Entity\Composition $codeComposition
+     * @param \Acme\DemoBundle\Entity\Composition $codeComposition
      *
      * @return Enregistrement
      */
-    public function setCodeComposition(\MMJBTL\PlatformBundle\Entity\Composition $codeComposition = null)
+    public function setCodeComposition(\Acme\DemoBundle\Entity\Composition $codeComposition = null)
     {
         $this->codeComposition = $codeComposition;
 
@@ -214,7 +214,7 @@ class Enregistrement
     /**
      * Get codeComposition
      *
-     * @return \MMJBTL\PlatformBundle\Entity\Composition
+     * @return \Acme\DemoBundle\Entity\Composition
      */
     public function getCodeComposition()
     {

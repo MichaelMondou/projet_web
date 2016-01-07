@@ -29,7 +29,7 @@ class Emprunter
     private $dateEmprunt;
 
     /**
-     * @var Album
+     * @var \Album
      *
      * @ORM\ManyToOne(targetEntity="Album")
      * @ORM\JoinColumns({
@@ -39,9 +39,9 @@ class Emprunter
     private $codeAlbum;
 
     /**
-     * @var Abonne
+     * @var \Abonné
      *
-     * @ORM\ManyToOne(targetEntity="Abonne")
+     * @ORM\ManyToOne(targetEntity="Abonné")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Code_Abonné", referencedColumnName="Code_Abonné")
      * })
@@ -86,11 +86,11 @@ class Emprunter
     /**
      * Set codeAlbum
      *
-     * @param Album $codeAlbum
+     * @param \Album $codeAlbum
      *
      * @return Emprunter
      */
-    public function setCodeAlbum(Album $codeAlbum = null)
+    public function setCodeAlbum(\Album $codeAlbum = null)
     {
         $this->codeAlbum = $codeAlbum;
 
@@ -100,7 +100,7 @@ class Emprunter
     /**
      * Get codeAlbum
      *
-     * @return Album
+     * @return \Album
      */
     public function getCodeAlbum()
     {
@@ -110,11 +110,11 @@ class Emprunter
     /**
      * Set codeAbonné
      *
-     * @param Abonne $codeAbonné
+     * @param \Abonné $codeAbonné
      *
      * @return Emprunter
      */
-    public function setCodeAbonné(Abonne $codeAbonné = null)
+    public function setCodeAbonné(\Abonné $codeAbonné = null)
     {
         $this->codeAbonné = $codeAbonné;
 
@@ -124,7 +124,7 @@ class Emprunter
     /**
      * Get codeAbonné
      *
-     * @return Abonne
+     * @return \Abonné
      */
     public function getCodeAbonné()
     {

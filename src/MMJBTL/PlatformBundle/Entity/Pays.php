@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
  * Paysset
  *
  * @ORM\Table(name="Pays", uniqueConstraints={@ORM\UniqueConstraint(name="IX_Pays", columns={"Nom_Pays"})})
-
  * @ORM\Entity
  */
 class Pays

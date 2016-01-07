@@ -11,7 +11,7 @@ class __TwigTemplate_19fd274781edf93c3927b7be733263420ff58c2cd40e023e55559a388b9
 
         $this->blocks = array(
             'body' => array($this, 'block_body'),
-            'platform_body' => array($this, 'block_platform_body'),
+            'albums' => array($this, 'block_albums'),
         );
     }
 
@@ -29,21 +29,23 @@ class __TwigTemplate_19fd274781edf93c3927b7be733263420ff58c2cd40e023e55559a388b9
     public function block_body($context, array $blocks = array())
     {
         // line 4
-        echo "    Choisissez un élément du menu.
-
-    ";
-        // line 6
-        $this->displayBlock('platform_body', $context, $blocks);
-        // line 8
+        echo "
+   Test
+   
+   \t";
+        // line 7
+        $this->displayBlock('albums', $context, $blocks);
+        // line 10
         echo "
 ";
     }
 
-    // line 6
-    public function block_platform_body($context, array $blocks = array())
+    // line 7
+    public function block_albums($context, array $blocks = array())
     {
-        // line 7
-        echo "    ";
+        // line 8
+        echo "
+\t";
     }
 
     public function getTemplateName()
@@ -58,6 +60,6 @@ class __TwigTemplate_19fd274781edf93c3927b7be733263420ff58c2cd40e023e55559a388b9
 
     public function getDebugInfo()
     {
-        return array (  46 => 7,  43 => 6,  38 => 8,  36 => 6,  32 => 4,  29 => 3,);
+        return array (  44 => 7,  37 => 7,  47 => 8,  42 => 8,  39 => 10,  32 => 4,  29 => 3,);
     }
 }

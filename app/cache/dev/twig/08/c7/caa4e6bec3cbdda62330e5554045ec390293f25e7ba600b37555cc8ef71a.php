@@ -11,7 +11,7 @@ class __TwigTemplate_08c7caa4e6bec3cbdda62330e5554045ec390293f25e7ba600b37555cc8
 
         $this->blocks = array(
             'body' => array($this, 'block_body'),
-            'platform_body' => array($this, 'block_platform_body'),
+            'albums' => array($this, 'block_albums'),
         );
     }
 
@@ -30,25 +30,22 @@ class __TwigTemplate_08c7caa4e6bec3cbdda62330e5554045ec390293f25e7ba600b37555cc8
     {
         // line 4
         echo "
-    ";
-        // line 6
-        echo "    <h1>Annonces</h1>
-    Blablabla
-
-    ";
+   Test
+   
+   \t";
+        // line 7
+        $this->displayBlock('albums', $context, $blocks);
         // line 10
-        echo "    ";
-        $this->displayBlock('platform_body', $context, $blocks);
-        // line 12
         echo "
 ";
     }
 
-    // line 10
-    public function block_platform_body($context, array $blocks = array())
+    // line 7
+    public function block_albums($context, array $blocks = array())
     {
-        // line 11
-        echo "    ";
+        // line 8
+        echo "
+\t";
     }
 
     public function getTemplateName()
@@ -63,6 +60,6 @@ class __TwigTemplate_08c7caa4e6bec3cbdda62330e5554045ec390293f25e7ba600b37555cc8
 
     public function getDebugInfo()
     {
-        return array (  51 => 11,  48 => 10,  43 => 12,  40 => 10,  35 => 6,  42 => 8,  39 => 7,  32 => 4,  29 => 3,);
+        return array (  47 => 8,  44 => 7,  37 => 7,  42 => 8,  39 => 10,  32 => 4,  29 => 3,);
     }
 }
