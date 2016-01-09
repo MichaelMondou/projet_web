@@ -1,11 +1,17 @@
 {% extends "::layout.html.twig" %}
 
-{% block body %}
+{% block navbar_form %}
 
-   Test
-   
-   	{% block albums %}
+{% endblock %}
 
-	{% endblock %}
+{% block path %}
+    <li class="active">
+        Accueil
+    </li>
+{% endblock %}
+
+{% block contenu %}
+
+    <p>Sélectionnez une rubrique ci-dessus.</p>
 
 {% endblock %}

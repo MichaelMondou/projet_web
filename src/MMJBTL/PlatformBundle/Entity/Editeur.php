@@ -5,8 +5,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Editeur
  *
+  *@ORM\Entity(repositoryClass="MMJBTL\PlatformBundle\Repository\EditeurRepository")
  * @ORM\Table(name="Editeur", indexes={@ORM\Index(name="IDX_CA1A7E7320B77BF2", columns={"Code_Pays"})})
- * @ORM\Entity
  */
 class Editeur
 {

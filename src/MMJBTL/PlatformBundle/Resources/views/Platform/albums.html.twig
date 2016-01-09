@@ -1,11 +1,115 @@
 {% extends "PlatformBundle::layout.html.twig" %}
 
-{% block title %}
+{% block titre_onglet %}
     Albums - {{ parent() }}
 {% endblock %}
 
-{% block albums %}
-        {% for album in listAlbumsByName %}
-        <li>{{ album.titreAlbum}}</li>
-        {% endfor %}
+{% block navbar_form %}
+<div class="row">
+  	<div class="col-lg-4">
+		{{ form_start(form) }}
+		{{ form_errors(form) }}
+		    <div class="input-group">
+				{{ form_label(form.search, " ")}}
+		   		{{ form_widget(form.search, {'attr': {'class': 'form-control', 'placeholder': 'Albums ou compositeurs'}})}}
+		      	<span class="input-group-btn">
+		    		{{ form_widget(form.save, { 'label': 'Go', 'attr': {'class': 'btn btn-default'}}) }}
+		      	</span>
+		    </div>
+    	{{ form_rest(form) }}
+  		{{ form_end(form) }}
+  	</div>
+</div>
 {% endblock %}
+
+{% block path %}
+    <li>
+        <a href="{{ path('platform_homepage') }}">Accueil</a> <span class="divider">/</span>
+    </li>
+    <li class='active'>
+        Albums
+    </li>
+{% endblock %}
+
+
+{% block titre_page %}
+	<p>Albums</p>
+{% endblock %}
+
+{% block contenu %}
+
+<p>Voici la liste de notre catalogue</p>
+<p>Il y a {{nbAlbums}} albums dans la sélection.</p>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="btn-group">
+			 
+			<button class="btn btn-default">
+				Trier par
+			</button> 
+			<button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li class="dropdown-header">Ascendant</li>
+				<li role="separator" class="divider"></li>
+				<li>
+					<a href="{{ path('platform_albums', { 'sort': "alpha_asc", 'choice': choice  }) }}">Ordre alphabétique</a>
+				</li>
+				<li>
+					<a href="{{ path('platform_albums', { 'sort': "year_asc", 'choice': choice  }) }}">Année</a>
+				</li>
+				<li>
+					<a href="{{ path('platform_albums', { 'sort': "editor_asc", 'choice': choice  }) }}">Editeur</a>
+				</li>
+				<li>
+					<a href="{{ path('platform_albums', { 'sort': "style_asc", 'choice': choice  }) }}">Genre</a>
+				</li>
+				<li role="separator" class="divider"></li>
+				<li class="dropdown-header">Descendant</li>
+				<li role="separator" class="divider"></li>
+				<li>
+					<a href="{{ path('platform_albums', { 'sort': "alpha_desc", 'choice': choice  }) }}">Ordre alphabétique</a>
+				</li>
+
+				<li>
+					<a href="{{ path('platform_albums', { 'sort': "year_desc", 'choice': choice  }) }}">Année</a>
+				</li>
+
+				<li>
+					<a href="{{ path('platform_albums', { 'sort': "editor_desc", 'choice': choice  }) }}">Editeur</a>
+				</li>
+
+				<li>
+					<a href="{{ path('platform_albums', { 'sort': "style_desc", 'choice': choice  }) }}">Genre</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-12">
+	<div class="well">
+		<ul class="media-list" id="search-list">
+
+			{% for album in listAlbums %}
+				<li class="media">
+					<div class="media-left">
+						<a href="#"><img alt="Image album" src="" class="media-object" /></a>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading"> <a href="#"> {{ album.titreAlbum }} </a> </h4>
+						<p>Année : {{ album.anneeAlbum }} </p>
+						<p>Editeur : {{ album.editeur.nomEditeur }} </p>
+						<p>Genre : {{ album.genre.libelleAbrege }} </p>
+					</div>
+				</li>
+				<li role="separator" class="divider"></li>
+  			{% endfor %}
+
+		</ul>
+	</div>
+</div>
+{% endblock %}
+

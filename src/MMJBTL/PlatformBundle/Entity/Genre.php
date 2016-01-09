@@ -26,7 +26,7 @@ class Genre
      *
      * @ORM\Column(name="Libellé_Abrégé", type="string", length=30, nullable=false)
      */
-    private $libelléAbrégé;
+    private $libelleAbrege;
 
 
     /**
@@ -40,26 +40,26 @@ class Genre
     }
 
     /**
-     * Set libelléAbrégé
+     * Set libelleAbrege
      *
-     * @param string $libelléAbrégé
+     * @param string $libelleAbrege
      *
      * @return Genre
      */
-    public function setLibelléAbrégé($libelléAbrégé)
+    public function setLibelleAbrege($libelleAbrege)
     {
-        $this->libelléAbrégé = $libelléAbrégé;
+        $this->libelleAbrege = $libelleAbrege;
 
         return $this;
     }
 
     /**
-     * Get libelléAbrégé
+     * Get libelleAbrege
      *
      * @return string
      */
-    public function getLibelléAbrégé()
+    public function getLibelleAbrege()
     {
-        return $this->libelléAbrégé;
+        return $this->libelleAbrege;
     }
 }

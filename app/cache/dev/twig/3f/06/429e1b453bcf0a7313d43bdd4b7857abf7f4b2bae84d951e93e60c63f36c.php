@@ -10,9 +10,12 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
         $this->parent = false;
 
         $this->blocks = array(
-            'title' => array($this, 'block_title'),
+            'titre_onglet' => array($this, 'block_titre_onglet'),
             'stylesheets' => array($this, 'block_stylesheets'),
-            'body' => array($this, 'block_body'),
+            'navbar_form' => array($this, 'block_navbar_form'),
+            'path' => array($this, 'block_path'),
+            'titre_page' => array($this, 'block_titre_page'),
+            'contenu' => array($this, 'block_contenu'),
             'javascripts' => array($this, 'block_javascripts'),
         );
     }
@@ -28,7 +31,7 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
 
     <title>";
         // line 7
-        $this->displayBlock('title', $context, $blocks);
+        $this->displayBlock('titre_onglet', $context, $blocks);
         echo "</title>
 
     ";
@@ -39,12 +42,6 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
 
 <body>
 <div class=\"container\">
-    <div id=\"header\" class=\"jumbotron\">
-        <h1>Bienvenue sur le site du projet de Web</h1>
-        <p>
-            Ce projet est propulsé par Symfony3.
-        </p>
-    </div>
 
     <nav class=\"navbar navbar-default\">
         <div class=\"container-fluid\">
@@ -57,7 +54,7 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
                     <span class=\"icon-bar\"></span>
                 </button>
                 <a class=\"navbar-brand\" href=\"";
-        // line 34
+        // line 28
         echo $this->env->getExtension('routing')->getPath("platform_homepage");
         echo "\">Projet Web</a>
             </div>
@@ -66,7 +63,7 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
             <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">
                 <ul class=\"nav navbar-nav\">
                     <li><a href=\"";
-        // line 40
+        // line 34
         echo $this->env->getExtension('routing')->getPath("platform_albums");
         echo "\">Albums</a></li>
                     <li class=\"dropdown\">
@@ -80,33 +77,54 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
                         </ul>
                     </li>
                 </ul>
-                <form class=\"navbar-form navbar-left\" role=\"search\">
-                    <div class=\"form-group\">
-                        <input type=\"text\" class=\"form-control\" placeholder=\"Compositeur ou album\">
-                    </div>
-                    <button type=\"submit\" class=\"btn btn-default\">Rechercher</button>
-                </form>
-            </div><!-- /.navbar-collapse -->
+                ";
+        // line 46
+        $this->displayBlock('navbar_form', $context, $blocks);
+        // line 49
+        echo "            </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    
-    ";
-        // line 62
-        $this->displayBlock('body', $context, $blocks);
-        // line 64
-        echo "
-    <footer>
-        <p>The sky's the limit © ";
+    <div class=\"row\">
+    <div class=\"col-md-12\">
+        <div class=\"page-header\">
+            <h1>
+                Projet web <span>Site de e-commerce</span>
+            </h1>
+        </div>
+        
+
+    <div class=\"col-md-12\">
+        <ul class=\"breadcrumb\">
+            ";
+        // line 63
+        $this->displayBlock('path', $context, $blocks);
         // line 66
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
-        echo " and beyond.</p>
+        echo "        </ul>
+    </div>
+
+
+
+    <h2>";
+        // line 71
+        $this->displayBlock('titre_page', $context, $blocks);
+        echo "</h2>
+
+    ";
+        // line 73
+        $this->displayBlock('contenu', $context, $blocks);
+        // line 76
+        echo "
+    </div>
+</div>
+
+    <footer>
     </footer>
 </div>
 
 ";
-        // line 70
+        // line 84
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 75
+        // line 89
         echo "
 </body>
 </html>
@@ -114,9 +132,9 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
     }
 
     // line 7
-    public function block_title($context, array $blocks = array())
+    public function block_titre_onglet($context, array $blocks = array())
     {
-        echo "Projet Web MMJBTL";
+        echo "Projet Web";
     }
 
     // line 9
@@ -129,19 +147,42 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
     ";
     }
 
-    // line 62
-    public function block_body($context, array $blocks = array())
+    // line 46
+    public function block_navbar_form($context, array $blocks = array())
     {
-        // line 63
-        echo "\t";
+        // line 47
+        echo "
+                ";
     }
 
-    // line 70
+    // line 63
+    public function block_path($context, array $blocks = array())
+    {
+        // line 64
+        echo "            
+            ";
+    }
+
+    // line 71
+    public function block_titre_page($context, array $blocks = array())
+    {
+        echo "Accueil";
+    }
+
+    // line 73
+    public function block_contenu($context, array $blocks = array())
+    {
+        // line 74
+        echo "
+    ";
+    }
+
+    // line 84
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 71
+        // line 85
         echo "    ";
-        // line 72
+        // line 86
         echo "    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
     <script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
 ";
@@ -159,6 +200,6 @@ class __TwigTemplate_3f06429e1b453bcf0a7313d43bdd4b7857abf7f4b2bae84d951e93e60c6
 
     public function getDebugInfo()
     {
-        return array (  126 => 10,  110 => 75,  97 => 64,  70 => 40,  23 => 1,  480 => 162,  474 => 161,  469 => 158,  461 => 155,  457 => 153,  453 => 151,  444 => 149,  440 => 148,  437 => 147,  435 => 146,  430 => 144,  427 => 143,  423 => 142,  413 => 134,  409 => 132,  407 => 131,  402 => 130,  398 => 129,  393 => 126,  387 => 122,  384 => 121,  381 => 120,  379 => 119,  374 => 116,  368 => 112,  365 => 111,  362 => 110,  360 => 109,  355 => 106,  341 => 105,  337 => 103,  322 => 101,  314 => 99,  312 => 98,  309 => 97,  305 => 95,  298 => 91,  294 => 90,  285 => 89,  283 => 88,  278 => 86,  268 => 85,  264 => 84,  258 => 81,  252 => 80,  247 => 78,  241 => 77,  229 => 73,  220 => 70,  214 => 69,  177 => 65,  169 => 60,  140 => 70,  132 => 51,  128 => 11,  107 => 36,  61 => 34,  273 => 96,  269 => 94,  254 => 92,  243 => 88,  240 => 86,  238 => 85,  235 => 74,  230 => 82,  227 => 81,  224 => 71,  221 => 77,  219 => 76,  217 => 75,  208 => 68,  204 => 72,  179 => 69,  159 => 61,  143 => 71,  135 => 53,  119 => 42,  102 => 32,  71 => 19,  67 => 15,  63 => 15,  59 => 14,  38 => 13,  94 => 28,  89 => 20,  85 => 25,  75 => 17,  68 => 14,  56 => 9,  87 => 25,  21 => 2,  26 => 6,  93 => 28,  88 => 6,  78 => 21,  46 => 7,  27 => 4,  44 => 7,  31 => 7,  28 => 3,  201 => 92,  196 => 90,  183 => 82,  171 => 61,  166 => 71,  163 => 62,  158 => 67,  156 => 66,  151 => 63,  142 => 59,  138 => 54,  136 => 63,  121 => 46,  117 => 7,  105 => 40,  91 => 27,  62 => 23,  49 => 19,  24 => 4,  25 => 3,  19 => 1,  79 => 18,  72 => 16,  69 => 25,  47 => 8,  40 => 8,  37 => 7,  22 => 2,  246 => 90,  157 => 56,  145 => 72,  139 => 45,  131 => 52,  123 => 9,  120 => 40,  115 => 43,  111 => 37,  108 => 70,  101 => 66,  98 => 31,  96 => 31,  83 => 25,  74 => 14,  66 => 15,  55 => 15,  52 => 21,  50 => 10,  43 => 8,  41 => 7,  35 => 5,  32 => 4,  29 => 3,  209 => 82,  203 => 78,  199 => 67,  193 => 73,  189 => 71,  187 => 84,  182 => 66,  176 => 64,  173 => 65,  168 => 72,  164 => 59,  162 => 57,  154 => 58,  149 => 51,  147 => 58,  144 => 49,  141 => 48,  133 => 62,  130 => 41,  125 => 44,  122 => 43,  116 => 41,  112 => 42,  109 => 34,  106 => 36,  103 => 32,  99 => 31,  95 => 62,  92 => 21,  86 => 28,  82 => 22,  80 => 19,  73 => 19,  64 => 17,  60 => 6,  57 => 11,  54 => 10,  51 => 14,  48 => 13,  45 => 17,  42 => 7,  39 => 10,  36 => 9,  33 => 4,  30 => 7,);
+        return array (  186 => 86,  184 => 85,  181 => 84,  176 => 74,  173 => 73,  167 => 71,  162 => 64,  159 => 63,  151 => 46,  146 => 11,  144 => 10,  141 => 9,  135 => 7,  128 => 89,  126 => 84,  116 => 76,  114 => 73,  109 => 71,  102 => 66,  82 => 46,  67 => 34,  58 => 28,  41 => 13,  34 => 7,  26 => 1,  39 => 9,  29 => 3,  212 => 94,  202 => 90,  198 => 89,  194 => 88,  190 => 87,  183 => 82,  179 => 81,  166 => 71,  160 => 68,  154 => 47,  148 => 62,  142 => 59,  136 => 56,  130 => 53,  124 => 50,  108 => 36,  105 => 35,  100 => 63,  97 => 31,  87 => 23,  84 => 49,  81 => 21,  74 => 17,  70 => 16,  66 => 15,  61 => 13,  57 => 12,  52 => 10,  48 => 9,  45 => 8,  42 => 10,  35 => 4,  32 => 4,);
     }
 }

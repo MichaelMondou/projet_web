@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Projet Web MMJBTL{% endblock %}</title>
+    <title>{% block titre_onglet %}Projet Web{% endblock %}</title>
 
     {% block stylesheets %}
         {# On charge le CSS de bootstrap depuis le site directement #}
@@ -14,12 +14,6 @@
 
 <body>
 <div class="container">
-    <div id="header" class="jumbotron">
-        <h1>Bienvenue sur le site du projet de Web</h1>
-        <p>
-            Ce projet est propulsé par Symfony3.
-        </p>
-    </div>
 
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -49,21 +43,41 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Compositeur ou album">
-                    </div>
-                    <button type="submit" class="btn btn-default">Rechercher</button>
-                </form>
+                {% block navbar_form %}
+
+                {%endblock%}
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    
-    {% block body %}
-	{% endblock %}
+    <div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1>
+                Projet web <span>Site de e-commerce</span>
+            </h1>
+        </div>
+        
+
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+            {% block path %}
+            
+            {% endblock %}
+        </ul>
+    </div>
+
+
+
+    <h2>{% block titre_page %}Accueil{% endblock %}</h2>
+
+    {% block contenu %}
+
+    {%endblock%}
+
+    </div>
+</div>
 
     <footer>
-        <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
     </footer>
 </div>
 

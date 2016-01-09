@@ -145,8 +145,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // platform_albums
-        if ($pathinfo === '/albums') {
-            return array (  '_controller' => 'MMJBTL\\PlatformBundle\\Controller\\PlatformController::albumsAction',  '_route' => 'platform_albums',);
+        if (0 === strpos($pathinfo, '/albums') && preg_match('#^/albums(?:/(?P<sort>[^/\\.]++)(?:\\.(?P<choice>[^/]++))?)?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'platform_albums')), array (  '_controller' => 'MMJBTL\\PlatformBundle\\Controller\\PlatformController::albumsAction',  'sort' => 'alpha_asc',  'choice' => NULL,));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

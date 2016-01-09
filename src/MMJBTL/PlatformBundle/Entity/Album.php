@@ -33,7 +33,7 @@ class Album
      *
      * @ORM\Column(name="Année_Album", type="integer", nullable=true)
      */
-    private $annéeAlbum;
+    private $anneeAlbum;
 
     /**
      * @var binary
@@ -61,6 +61,18 @@ class Album
      * })
      */
     private $codeEditeur;
+
+    /**
+   * @ORM\ManyToOne(targetEntity="Editeur")
+   * @ORM\JoinColumn(name="Code_Editeur", referencedColumnName="Code_Editeur")
+   */
+    private $editeur;
+
+   /**
+   * @ORM\ManyToOne(targetEntity="Genre")
+   * @ORM\JoinColumn(name="Code_Genre", referencedColumnName="Code_Genre")
+   */
+    private $genre;
 
 
     /**
@@ -98,27 +110,27 @@ class Album
     }
 
     /**
-     * Set annéeAlbum
+     * Set anneeAlbum
      *
-     * @param integer $annéeAlbum
+     * @param integer $anneeAlbum
      *
      * @return Album
      */
-    public function setAnnéeAlbum($annéeAlbum)
+    public function setAnneeAlbum($anneeAlbum)
     {
-        $this->annéeAlbum = $annéeAlbum;
+        $this->anneeAlbum = $anneeAlbum;
 
         return $this;
     }
 
     /**
-     * Get annéeAlbum
+     * Get anneeAlbum
      *
      * @return integer
      */
-    public function getAnnéeAlbum()
+    public function getAnneeAlbum()
     {
-        return $this->annéeAlbum;
+        return $this->anneeAlbum;
     }
 
     /**
@@ -191,5 +203,16 @@ class Album
     public function getCodeEditeur()
     {
         return $this->codeEditeur;
+    }
+
+    public function getEditeur()
+    {
+        return $this->editeur;
+    }
+
+
+    public function getGenre()
+    {
+        return $this->genre;
     }
 }

@@ -3553,7 +3553,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.root_dir' => 'C:/wamp/www/projet_web/app',
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
-            'kernel.name' => 'ap_',
+            'kernel.name' => 'app',
             'kernel.cache_dir' => 'C:/wamp/www/projet_web/app/cache/dev',
             'kernel.logs_dir' => 'C:/wamp/www/projet_web/app/logs',
             'kernel.bundles' => array(

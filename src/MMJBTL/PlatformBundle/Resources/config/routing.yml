@@ -3,5 +3,5 @@ platform_homepage:
     defaults: { _controller: PlatformBundle:Platform:index }
 
 platform_albums:
-    path: /albums
-    defaults: { _controller: PlatformBundle:Platform:albums }
+    path: /albums/{sort}.{choice}
+    defaults: { _controller: PlatformBundle:Platform:albums, sort: alpha_asc, choice: null }
