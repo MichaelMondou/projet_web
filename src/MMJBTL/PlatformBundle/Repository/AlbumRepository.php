@@ -9,7 +9,7 @@ class AlbumRepository extends EntityRepository
 {
 
 
-    public function getAlbums( $sort, $result ) {
+    public function getAlbums( $sort, $choice ) {
 
         $qb = $this->createQueryBuilder( 'a' );
 
@@ -45,11 +45,11 @@ class AlbumRepository extends EntityRepository
                 break;      
         }
 
-        if (!is_null( $result )){
-            $result = '%'.$result.'%';
+        if (!is_null( $choice )){
+            $choice = '%'.$choice.'%';
             $qb
-            ->andWhere('a.titreAlbum LIKE :result')
-            ->setParameter('result', $result);
+            ->andWhere('a.titreAlbum LIKE :choice')
+            ->setParameter('choice', $choice);
         }
 
         $listAlbums = $qb

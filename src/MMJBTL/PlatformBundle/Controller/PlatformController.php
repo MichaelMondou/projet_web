@@ -28,23 +28,19 @@ class PlatformController extends Controller
         ->getRepository( 'PlatformBundle:Album' );
 
         $form = $this->get('form.factory')->create(new SearchType);
+        $form->handleRequest($request)->isValid();
+        $result = $form->get('search')->getData();
 
-        if(is_null($choice)){
+        if(is_null($choice))
+            $choice = $result;
 
-            if ($form->handleRequest($request)->isValid()) {
-                $result = $form->get('search')->getData();
-                $choice = $result;
-            }
-            else{
-                $result = null;
-            }
-        }
-        else{
-            $result = $choice;
+        if(!is_null($result) && $result != $choice){
+            $choice = $result;
+            return $this->redirect($this->generateUrl('platform_albums', array('sort' => $sort, 'choice' => $choice)));
         }
 
         $listAlbums = $album_repo
-        ->getAlbums( $sort , $result );
+        ->getAlbums( $sort , $choice );
 
         $nbAlbums = count($listAlbums);
 
