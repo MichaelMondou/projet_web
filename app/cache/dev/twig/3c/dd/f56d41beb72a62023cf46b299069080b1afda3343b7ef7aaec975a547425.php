@@ -200,23 +200,32 @@ class __TwigTemplate_3cddf56d41beb72a62023cf46b299069080b1afda3343b7ef7aaec975a5
             // line 97
             echo "\t\t\t\t<li class=\"media\">
 \t\t\t\t\t<div class=\"media-left\">
-\t\t\t\t\t\t<a href=\"#\"><img alt=\"Image album\" src=\"\" class=\"media-object\" /></a>
-\t\t\t\t\t</div>
+\t\t\t\t\t\t";
+            // line 99
+            if (($this->getAttribute((isset($context["album"]) ? $context["album"] : $this->getContext($context, "album")), "getImage") != null)) {
+                // line 100
+                echo "\t\t\t\t\t\t<img class=\"media-object img-thumbnail petite-photo\" src=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("demo_photo", array("code" => $this->getAttribute((isset($context["album"]) ? $context["album"] : $this->getContext($context, "album")), "codeAlbum"), "classe" => "Album")), "html", null, true);
+                echo "\">
+\t\t\t\t\t\t";
+            }
+            // line 102
+            echo "\t\t\t\t\t</div>
 \t\t\t\t\t<div class=\"media-body\">
 \t\t\t\t\t\t<h4 class=\"media-heading\"> <a href=\"#\"> ";
-            // line 102
+            // line 104
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["album"]) ? $context["album"] : $this->getContext($context, "album")), "titreAlbum"), "html", null, true);
             echo " </a> </h4>
 \t\t\t\t\t\t<p>Année : ";
-            // line 103
+            // line 105
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["album"]) ? $context["album"] : $this->getContext($context, "album")), "anneeAlbum"), "html", null, true);
             echo " </p>
 \t\t\t\t\t\t<p>Editeur : ";
-            // line 104
+            // line 106
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["album"]) ? $context["album"] : $this->getContext($context, "album")), "editeur"), "nomEditeur"), "html", null, true);
             echo " </p>
 \t\t\t\t\t\t<p>Genre : ";
-            // line 105
+            // line 107
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["album"]) ? $context["album"] : $this->getContext($context, "album")), "genre"), "libelleAbrege"), "html", null, true);
             echo " </p>
 \t\t\t\t\t</div>
@@ -227,9 +236,8 @@ class __TwigTemplate_3cddf56d41beb72a62023cf46b299069080b1afda3343b7ef7aaec975a5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['album'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 110
-        echo "
-\t\t</ul>
+        // line 112
+        echo "\t\t</ul>
 \t</div>
 </div>
 ";
@@ -247,6 +255,6 @@ class __TwigTemplate_3cddf56d41beb72a62023cf46b299069080b1afda3343b7ef7aaec975a5
 
     public function getDebugInfo()
     {
-        return array (  231 => 110,  220 => 105,  216 => 104,  212 => 103,  208 => 102,  201 => 97,  197 => 96,  183 => 85,  176 => 81,  169 => 77,  162 => 73,  153 => 67,  147 => 64,  141 => 61,  135 => 58,  116 => 42,  112 => 40,  109 => 39,  104 => 36,  101 => 35,  91 => 27,  88 => 26,  85 => 25,  77 => 20,  73 => 19,  67 => 16,  62 => 14,  58 => 13,  53 => 11,  49 => 10,  45 => 8,  42 => 7,  35 => 4,  32 => 3,);
+        return array (  240 => 112,  229 => 107,  225 => 106,  221 => 105,  217 => 104,  213 => 102,  207 => 100,  205 => 99,  201 => 97,  197 => 96,  183 => 85,  176 => 81,  169 => 77,  162 => 73,  153 => 67,  147 => 64,  141 => 61,  135 => 58,  116 => 42,  112 => 40,  109 => 39,  104 => 36,  101 => 35,  91 => 27,  88 => 26,  85 => 25,  77 => 20,  73 => 19,  67 => 16,  62 => 14,  58 => 13,  53 => 11,  49 => 10,  45 => 8,  42 => 7,  35 => 4,  32 => 3,);
     }
 }

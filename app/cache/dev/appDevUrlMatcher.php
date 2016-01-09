@@ -149,6 +149,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'platform_albums')), array (  '_controller' => 'MMJBTL\\PlatformBundle\\Controller\\PlatformController::albumsAction',  'sort' => 'alpha_asc',  'choice' => NULL,));
         }
 
+        // demo_photo
+        if (0 === strpos($pathinfo, '/photo') && preg_match('#^/photo/(?P<code>[^/]++)/(?P<classe>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'demo_photo')), array (  '_controller' => 'MMJBTL\\PlatformBundle\\Controller\\PlatformController::photoAction',));
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

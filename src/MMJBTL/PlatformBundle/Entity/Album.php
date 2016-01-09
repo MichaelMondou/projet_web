@@ -74,6 +74,8 @@ class Album
    */
     private $genre;
 
+    private $image;
+
 
     /**
      * Get codeAlbum
@@ -140,7 +142,7 @@ class Album
      *
      * @return Album
      */
-    public function setPochette($pochette)
+    public function setImage($pochette)
     {
         $this->pochette = $pochette;
 
@@ -152,7 +154,7 @@ class Album
      *
      * @return binary
      */
-    public function getPochette()
+    public function getImage()
     {
         return $this->pochette;
     }

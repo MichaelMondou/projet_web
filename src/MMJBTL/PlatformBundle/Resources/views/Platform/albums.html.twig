@@ -96,7 +96,9 @@
 			{% for album in listAlbums %}
 				<li class="media">
 					<div class="media-left">
-						<a href="#"><img alt="Image album" src="" class="media-object" /></a>
+						{% if album.getImage != null %}
+						<img class="media-object img-thumbnail petite-photo" src="{{ path('demo_photo',{'code':  album.codeAlbum, 'classe':'Album' })}}">
+						{% endif %}
 					</div>
 					<div class="media-body">
 						<h4 class="media-heading"> <a href="#"> {{ album.titreAlbum }} </a> </h4>
@@ -107,7 +109,6 @@
 				</li>
 				<li role="separator" class="divider"></li>
   			{% endfor %}
-
 		</ul>
 	</div>
 </div>

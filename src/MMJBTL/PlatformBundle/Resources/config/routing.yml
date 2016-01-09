@@ -5,3 +5,7 @@ platform_homepage:
 platform_albums:
     path: /albums/{sort}.{choice}
     defaults: { _controller: PlatformBundle:Platform:albums, sort: alpha_asc, choice: null }
+
+demo_photo:
+    path: photo/{code}/{classe}
+    defaults: { _controller: PlatformBundle:Platform:photo }

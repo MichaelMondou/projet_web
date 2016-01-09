@@ -3,6 +3,7 @@
 namespace MMJBTL\PlatformBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class AlbumRepository extends EntityRepository
 {
@@ -51,22 +52,10 @@ class AlbumRepository extends EntityRepository
             ->setParameter('result', $result);
         }
 
-
         $listAlbums = $qb
-        ->getQuery()
-        ->getResult()
-        ;
+            ->getQuery()
+            ->getResult();
 
         return $listAlbums;
-    }
-
-    public function photo( $album ) {
-        $image = stream_get_contents( $album->getPochette() );
-        $image = pack( "H*", $image );
-        $response = new \Symfony\Component\HttpFoundation\Response();
-        $response->headers->set( 'Content-type', 'image/jpeg' );
-        $response->headers->set( 'Content-Transfer-Encoding', 'binary' );
-        $response->setContent( $image );
-        return $response;
     }
 }
